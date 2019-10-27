@@ -1,0 +1,55 @@
+body{
+  text-align: center;
+}
+
+h5, h6 {
+  font-weight: 500;
+  color: #0066CC;
+}
+
+#top {
+  margin: 50px 0 150px 0;
+  padding: 0 10% 0 10%;
+}
+
+#middle {
+  padding: 0 5% 0 5%;
+}
+
+#why-qreduce {
+  margin: 100px 0 200px 0;
+}
+
+.navbar-brand {
+  margin-left: 3%;
+}
+
+.navbar-collapse {
+  margin-right: 3%;
+}
+
+.top-image {
+  margin: 50px 0;
+}
+
+.top-btn {
+  margin-top: 20px;
+}
+
+.middle-row {
+  margin: 50px 0 70px;
+}
+
+.mid-section-table-r {
+  text-align: left;
+  position: relative;
+  left: 20px;
+  top: 300px;
+}
+
+.mid-section-table-l {
+  text-align: left;
+  position: relative;
+  right: 20px;
+  top: 300px;
+}
