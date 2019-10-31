@@ -15,3 +15,5 @@ $("#btn-complete-details").click(function() {
         scrollTop: $("#detailed-report").offset().top},
         'slow');
 });
+
+$('#input_starttime').wickedpicker();

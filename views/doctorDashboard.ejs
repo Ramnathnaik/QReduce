@@ -1,0 +1,70 @@
+<%- include("partials/header") %>
+
+<body>
+  <section id="navigation-bar">
+    <!-- Navbar Section -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="">QReduce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </section>
+  <br>
+  <h1>DASHBOARD</h1>
+  <br>
+  <div class="container-fluid dashboard-section">
+    <div class="row">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="images/appointmentsPending.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Appointments Pending</h5>
+            <p class="card-text">Click on the below button to show all the remaining appointments</p>
+            <a href="#" class="btn btn-primary">Click Here</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="images/generateReport.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Generate Report</h5>
+            <p class="card-text">Click on the below button to generate a report of a patient</p>
+            <a href="#" class="btn btn-primary">Click Here</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="images/completeReport.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Complete Reports</h5>
+            <p class="card-text">Click on the below button to get all your previously generated reports</p>
+            <a href="#" class="btn btn-primary">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<%- include("partials/footer") %>

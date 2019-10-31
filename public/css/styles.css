@@ -89,3 +89,9 @@ h5, h6 {
 .register-section {
   padding: 5% 10%;
 }
+
+/* Dashboard Styling */
+
+.dashboard-section {
+  padding: 0 5% 0 10%;
+}
