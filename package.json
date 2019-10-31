@@ -1,0 +1,24 @@
+{
+  "name": "qreduce",
+  "version": "1.0.0",
+  "description": "A web application which helps to reduce queue system in hospitals",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ramnathnaik/qreduce.git"
+  },
+  "author": "K P Ramanath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ramnathnaik/qreduce/issues"
+  },
+  "homepage": "https://github.com/Ramnathnaik/qreduce#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1"
+  }
+}
