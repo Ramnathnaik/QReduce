@@ -1,3 +1,5 @@
+/* Home Styling */
+
 body{
   text-align: center;
 }
@@ -52,4 +54,38 @@ h5, h6 {
   position: relative;
   right: 20px;
   top: 300px;
+}
+
+/* Login Styling */
+
+.login-section-text {
+  width: 30vh;
+  height: 100vh;
+  background-color: #0056ac; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to top right, #0056ac, #60c1d5); /* Standard syntax (must be last) */
+}
+
+.login-section-main {
+  width: 30vh;
+  height: 100vh;
+  position: relative;
+  top: 200px;
+  padding: 0 5% 0 5%;
+}
+
+.login-section-labels {
+  position: relative;
+  top: 200px;
+}
+
+.btn-xl {
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+/* Register Styling */
+
+.register-section {
+  padding: 5% 10%;
 }
