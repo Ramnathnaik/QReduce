@@ -4,47 +4,71 @@
   <div class="register-section">
     <h1>Join QReduce as Doctor</h1>
     <br>
-    <form action="/login" method="post">
+    <%- include("partials/messages") %>
+    <form action="/doctor-register" method="post">
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <label>Email</label>
-          <input type="email" class="form-control" name="email" placeholder="Email">
+        <div class="form-group col-md-4">
+          <label>Name</label>
+          <input type="text" class="form-control" name="name" placeholder="Name" value="<%= typeof name!= 'undefined' ? name:''%>" >
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
+          <label>Email</label>
+          <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof email!= 'undefined' ? email:''%>" >
+        </div>
+        <div class="form-group col-md-4">
           <label>Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password" value="<%= typeof password!= 'undefined' ? password:''%>" >
         </div>
       </div>
       <div class="form-group">
         <label for="inputAddress">Clinic Address</label>
-        <input type="text" class="form-control" name="currentAddress" placeholder="1234 Main St">
+        <input type="text" class="form-control" name="clinicAddress" placeholder="1234 Main St" value="<%= typeof clinicAddress!= 'undefined' ? clinicAddress:''%>" >
       </div>
+
       <div class="form-row">
-        <div class="form-group col-md-3">
-          <label>City</label>
-          <input type="text" class="form-control" name="city">
-        </div>
-        <div class="form-group md-form col-md-3">
+        <div class="form-group md-form col-md-6">
           <label for="input_starttime">Clinic opening time</label>
-          <input placeholder="Selected time" type="text" id="input_starttime" class="form-control timepicker">
+          <input placeholder="Time" type="text" id="input_starttime" name="openingTime" class="form-control timepicker" value="<%= typeof openingTime!= 'undefined' ? openingTime:''%>" >
         </div>
-        <div class="form-group col-md-3">
-          <label for="inputState">State</label>
-          <select id="inputState" class="form-control" name="state">
+        <div class="form-group col-md-6">
+          <label>Specialization</label>
+          <select class="form-control" name="specialization" value="<%= typeof specialization!= 'undefined' ? specialization:''%>">
             <option selected>Choose...</option>
-            <option value="karnataka">Karnataka</option>
-            <option value="chennai">Chennai</option>
-            <option value="mumbai">Mumbai</option>
-            <option value="hydrabad">Hydrabad</option>
+            <option value="general-physician">General physician</option>
+            <option value="dentist">Dentist</option>
+            <option value="gynecologist">Gynecologist/Obstetrician</option>
+            <option value="dietitian">Dietitian/Nutrition</option>
+            <option value="physiotherapist">Physiotherapist</option>
+            <option value="general-surgeon">General surgeon</option>
+            <option value="orthopedist">Orthopedist</option>
+            <option value="pediatrician">Pediatrician</option>
+            <option value="gastroenterologist">Gastroenterologist</option>
           </select>
         </div>
-        <div class="form-group col-md-3">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label>City</label>
+          <input type="text" class="form-control" name="city" value="<%= typeof city!= 'undefined' ? city:''%>" >
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control" name="state" value="<%= typeof state!= 'undefined' ? state:''%>" >
+            <option selected>Choose...</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Hydrabad">Hydrabad</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
           <label>Zip</label>
-          <input type="text" class="form-control" name="zip">
+          <input type="text" class="form-control" name="zip" value="<%= typeof zip!= 'undefined' ? zip:''%>" >
         </div>
       </div>
       <br>
-      <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+      <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
     </form>
   </div>
 </body>

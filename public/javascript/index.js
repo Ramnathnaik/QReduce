@@ -16,4 +16,10 @@ $("#btn-complete-details").click(function() {
         'slow');
 });
 
-$('#input_starttime').wickedpicker();
+$("#create-account").click(function(){
+  window.location = "/register";
+});
+
+$("#create-doctor-account").click(function(){
+  window.location = "/doctor-register";
+});

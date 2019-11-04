@@ -8,18 +8,19 @@
         <br><br>
         <h2 class="text-white">Don't have a QReduce<br>account yet?</h2>
         <br>
-        <button type="button" class="btn btn-outline-light btn-lg">Create</button>
+        <button type="button" id="create-doctor-account" class="btn btn-outline-light btn-lg">Create</button>
       </div>
     </div>
     <div class="col login-section-main">
       <h2>Log in to<br>QReduce as Doctor</h2>
+      <%- include("partials/messages") %>
       <br>
-      <form action="/login" method="post">
+      <form action="/doctor-login" method="post">
         <div class="form-group">
-          <input type="email" class="form-control form-control-lg text-center" aria-describedby="emailHelp" placeholder="Email Address">
+          <input type="email" class="form-control form-control-lg text-center" name="email" aria-describedby="emailHelp" placeholder="Email Address">
         </div>
         <div class="form-group">
-          <input type="password" class="form-control form-control-lg text-center" placeholder="Password">
+          <input type="password" class="form-control form-control-lg text-center" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary btn-xl">Log In</button>
       </form>

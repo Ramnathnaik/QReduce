@@ -95,3 +95,15 @@ h5, h6 {
 .dashboard-section {
   padding: 0 5% 0 10%;
 }
+
+/* doctorLists styling  */
+
+.doctors-list {
+  text-align: left;
+}
+
+.profilepic {
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+}

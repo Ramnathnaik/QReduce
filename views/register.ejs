@@ -4,33 +4,38 @@
   <div class="register-section">
     <h1>Join QReduce</h1>
     <br>
-    <form action="/login" method="post">
+    <%- include("partials/messages") %>
+    <form action="/register" method="post">
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
+          <label>Name</label>
+          <input type="text" class="form-control" name="name" placeholder="Name" value="<%= typeof name!= 'undefined' ? name:''%>" >
+        </div>
+        <div class="form-group col-md-4">
           <label>Email</label>
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof email!= 'undefined' ? email:''%>" >
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <label>Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password" value="<%= typeof password!= 'undefined' ? password:''%>" >
         </div>
       </div>
       <div class="form-group">
-        <label for="inputAddress">Current Address</label>
-        <input type="text" class="form-control" name="currentAddress" placeholder="1234 Main St">
+        <label>Current Address</label>
+        <input type="text" class="form-control" name="currentAddress" placeholder="1234 Main St" value="<%= typeof currentAddress!= 'undefined' ? currentAddress:''%>" >
       </div>
       <div class="form-group">
-        <label for="inputAddress2">Permanent Address</label>
-        <input type="text" class="form-control" name="permanentAddress" placeholder="Apartment, studio, or floor">
+        <label>Permanent Address</label>
+        <input type="text" class="form-control" name="permanentAddress" placeholder="Apartment, studio, or floor" value="<%= typeof permanentAddress!= 'undefined' ? permanentAddress:''%>">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label>City</label>
-          <input type="text" class="form-control" name="city">
+          <input type="text" class="form-control" name="city" value="<%= typeof city!= 'undefined' ? city:''%>" >
         </div>
         <div class="form-group col-md-4">
-          <label for="inputState">State</label>
-          <select id="inputState" class="form-control" name="state">
+          <label>State</label>
+          <select id="inputState" class="form-control" name="state" value="<%= typeof state!= 'undefined' ? state:''%>" >
             <option selected>Choose...</option>
             <option value="karnataka">Karnataka</option>
             <option value="chennai">Chennai</option>
@@ -40,11 +45,11 @@
         </div>
         <div class="form-group col-md-2">
           <label>Zip</label>
-          <input type="text" class="form-control" name="zip">
+          <input type="text" class="form-control" name="zip" value="<%= typeof zip!= 'undefined' ? zip:''%>" >
         </div>
       </div>
       <br>
-      <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+      <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
     </form>
   </div>
 </body>
