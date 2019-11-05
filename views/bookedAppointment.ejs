@@ -31,9 +31,9 @@
 
   </section>
   <br>
-
+  <h1>Upcoming Appointment</h1>
+  <br>
   <div class="container">
-    <% foundDoctors.forEach(function(doctor){ %>
     <div class="jumbotron">
       <div>
         <table>
@@ -56,13 +56,9 @@
         </table>
       </div>
     <hr class="my-4">
-    <form action="/book-appointment" method="post">
-      <button class="btn btn-primary btn-lg" type="submit" name="doctorId" value="<%=doctor._id%>">Book now</button>
-    </form>
+    <p>We will mail you when your appointment is near by</p>
   </div>
-  <% }); %>
   </div>
-
 </body>
 
 <%- include("partials/footer") %>

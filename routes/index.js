@@ -196,6 +196,25 @@ router.get("/book-appointment", ensureAuthenticated, (req, res) => {
   res.render("bookAppointment");
 });
 
+//Get to know the booked appointment
+router.get("/booked-appointment", ensureAuthenticated, (req, res) => {
+  const doctorId = req.user.doctorId;
+
+  Doctor.findById({_id: doctorId}, (err, foundDoctor) => {
+    if(!err) {
+      if(foundDoctor) {
+        res.render("bookedAppointment", {doctor: foundDoctor});
+      } else {
+        req.flash("error_msg", "You have no upcoming appointment");
+        res.redirect("/dashboard");
+      }
+    } else {
+      req.flash("error", "You have no upcoming appointment");
+      res.redirect("/dashboard");
+    }
+  });
+});
+
 
 //Get specialization
 router.get("/book-appointment/:specialization", ensureAuthenticated, (req, res) => {
