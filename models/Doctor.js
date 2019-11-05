@@ -37,7 +37,8 @@ const doctorSchema = new mongoose.Schema({
   zip: {
     type: String,
     required: true
-  }
+  },
+  patientId: [String]
 });
 
 const Doctor = mongoose.model("Doctor", doctorSchema);

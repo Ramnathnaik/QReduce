@@ -196,6 +196,8 @@ router.get("/book-appointment", ensureAuthenticated, (req, res) => {
   res.render("bookAppointment");
 });
 
+
+//Get specialization
 router.get("/book-appointment/:specialization", ensureAuthenticated, (req, res) => {
   const specialization = req.params.specialization;
   const zip = req.user.zip;
@@ -207,6 +209,27 @@ router.get("/book-appointment/:specialization", ensureAuthenticated, (req, res) 
         console.log(err);
       }
     });
+  });
+
+  //Booking an appointment
+  router.post("/book-appointment", ensureAuthenticated, (req, res) => {
+    const doctorId = req.body.doctorId;
+    const userId = req.user._id;
+
+    User.findByIdAndUpdate(userId, {$set: {doctorId: doctorId}}, function(err){
+      if (!err) {
+        Doctor.findByIdAndUpdate({_id: doctorId}, {$push: {patientId: userId}}, function(err){
+          if(!err) {
+            req.flash("success_msg", "You have successfully booked a doctor");
+            res.redirect("/dashboard");
+          }
+        });
+      } else {
+        req.flash("error_msg", "Booking unsuccessfull. Please try again");
+        res.redirect("/dashboard");
+      }
+    });
+
   });
 
 module.exports = router;

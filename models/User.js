@@ -33,7 +33,8 @@ const userSchema = new mongoose.Schema({
   zip: {
     type: String,
     required: true
-  }
+  },
+  doctorId: String
 });
 
 const User = mongoose.model("User", userSchema);
