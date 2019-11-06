@@ -34,6 +34,8 @@
   <h1>DASHBOARD</h1>
   <br>
   <div class="container-fluid dashboard-section">
+    <%- include("partials/messages") %>
+    <br>
     <div class="row">
       <div class="col">
         <div class="card" style="width: 18rem;">
@@ -41,7 +43,7 @@
           <div class="card-body">
             <h5 class="card-title">Appointments Pending</h5>
             <p class="card-text">Click on the below button to show all the remaining appointments</p>
-            <a href="#" class="btn btn-primary">Click Here</a>
+            <a href="/appointments-pending" class="btn btn-primary">Click Here</a>
           </div>
         </div>
       </div>

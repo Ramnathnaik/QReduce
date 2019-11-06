@@ -1,0 +1,66 @@
+<%- include("partials/header") %>
+
+<body>
+  <section id="navigation-bar">
+    <!-- Navbar Section -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="">QReduce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </section>
+  <br>
+
+  <div class="container">
+    <% patients.forEach(function(patient){ %>
+    <div class="jumbotron">
+      <div>
+        <table>
+            <div class="row">
+              <div class="col col-lg-4">
+                <img src="/images/profilePic.png" class="profilepic" alt="profilePic"></img>
+              </div>
+                <div class="col col-lg-8 doctors-list">
+                    <h2> <%=patient.name %> </h2>
+                    <ul>
+                        <li ><label class="lead">Email</label><p> <%=patient.email%> </p></li>
+                        <li ><label class="lead">Current Address</label><p> <%=patient.currentAddress%> </p></li>
+                        <li ><label class="lead">City & State</label><p> <%=patient.city%>, <%=patient.state%> </p></li>
+                    </ul>
+                </div>
+
+            </div>
+        </table>
+      </div>
+    <hr class="my-4">
+    <form action="/appointments-pending" method="post">
+      <button class="btn btn-primary btn-lg" type="submit" name="patientId" value="<%=patient._id%>">Done</button>
+    </form>
+  </div>
+  <% }); %>
+  </div>
+
+</body>
+
+<%- include("partials/footer") %>

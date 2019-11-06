@@ -233,11 +233,12 @@ router.get("/book-appointment/:specialization", ensureAuthenticated, (req, res) 
   //Booking an appointment
   router.post("/book-appointment", ensureAuthenticated, (req, res) => {
     const doctorId = req.body.doctorId;
+    const user = req.user;
     const userId = req.user._id;
 
     User.findByIdAndUpdate(userId, {$set: {doctorId: doctorId}}, function(err){
       if (!err) {
-        Doctor.findByIdAndUpdate({_id: doctorId}, {$push: {patientId: userId}}, function(err){
+        Doctor.findByIdAndUpdate({_id: doctorId}, {$push: {patientId: user}}, function(err){
           if(!err) {
             req.flash("success_msg", "You have successfully booked a doctor");
             res.redirect("/dashboard");
@@ -246,6 +247,33 @@ router.get("/book-appointment/:specialization", ensureAuthenticated, (req, res) 
       } else {
         req.flash("error_msg", "Booking unsuccessfull. Please try again");
         res.redirect("/dashboard");
+      }
+    });
+
+  });
+
+  //All the pending appointments
+  router.get("/appointments-pending", doctorAuthenticated, (req, res) => {
+    const patients = req.user.patientId;
+    res.render("appointmentsPending", {patients: patients});
+  });
+
+  //Done with appointment
+  router.post("/appointments-pending", doctorAuthenticated, (req, res) => {
+    const patientId = req.body.patientId;
+    const doctorId = req.user._id;
+
+    User.findByIdAndUpdate(patientId, {$set: {doctorId: undefined}}, function(err){
+      if (!err) {
+        Doctor.findByIdAndUpdate({_id: doctorId}, {$pull: {patientId: {_id: patientId}}}, function(err){
+          if(!err) {
+            req.flash("success_msg", "Successfully done with patient checkup. Please generate a report");
+            res.redirect("/doctor-dashboard");
+          }
+        });
+      } else {
+        req.flash("error_msg", "Something went wrong. Please try again");
+        res.redirect("/doctor-dashboard");
       }
     });
 
