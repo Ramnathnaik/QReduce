@@ -1,6 +1,17 @@
 //jshint esversion: 6
 const mongoose = require("mongoose");
 
+const reportSchema = new mongoose.Schema({
+  medicines: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -34,7 +45,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  doctorId: String
+  doctorId: String,
+  reports: [reportSchema]
 });
 
 const doctorSchema = new mongoose.Schema({

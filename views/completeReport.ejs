@@ -1,0 +1,50 @@
+<%- include("partials/header") %>
+
+<body>
+  <section id="navigation-bar">
+    <!-- Navbar Section -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="">QReduce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </section>
+  <br>
+
+  <div class="container">
+    <% userReports.forEach(function(report){ %>
+    <div class="jumbotron">
+      <div class="doctors-list">
+        <ul>
+            <li ><label class="lead">Date</label><p> <%=report.date%> </p></li>
+            <li ><label class="lead">Prescription</label><p> <%=report.medicines%> </p></li>
+        </ul>
+      </div>
+  </div>
+  <% }); %>
+  </div>
+
+</body>
+
+<%- include("partials/footer") %>

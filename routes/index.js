@@ -3,10 +3,25 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const {ensureAuthenticated, doctorAuthenticated} = require("../config/auth");
-
+const mongoose = require("mongoose");
 
 //Passport Config
 const login = require("../config/passport");
+
+//Report Schema
+const reportSchema = new mongoose.Schema({
+  medicines: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+//Report Model
+const Report = mongoose.model("Report", reportSchema);
 
 //bcrypt
 const bcrypt = require('bcrypt');
@@ -277,6 +292,62 @@ router.get("/book-appointment/:specialization", ensureAuthenticated, (req, res) 
       }
     });
 
+  });
+
+  //Generate Report
+  router.get("/generate-report", doctorAuthenticated, (req, res) => res.render("generateReport"));
+
+  router.post("/generate-report", doctorAuthenticated, (req, res) => {
+    const patientEmailId = req.body.search;
+    res.render("generatedReport", {emailId: patientEmailId});
+  });
+
+  router.post("/generated-report", doctorAuthenticated, (req, res) => {
+    const emailId = req.body.patientEmailId;
+    const prescription = req.body.prescription;
+
+    const report = new Report({
+      medicines: prescription
+    });
+
+    User.updateOne({email: emailId}, {$push: {reports: report}}, function(err) {
+      if(!err) {
+        req.flash("success_msg", "Report Generated");
+        res.redirect("/doctor-dashboard");
+      } else {
+        console.log(err);
+        req.flash("error_msg", "Something went wrong. Please try again");
+        res.redirect("/doctor-dashboard");
+      }
+    });
+  });
+
+  //User complete reports
+  router.get("/complete-report", ensureAuthenticated, (req, res) => {
+    const userReports = req.user.reports;
+    res.render("completeReport", {userReports: userReports});
+  });
+
+  //Doctor searching reports
+  router.get("/search-reports", doctorAuthenticated, (req, res) => res.render("searchReports"));
+
+  router.post("/search-reports", doctorAuthenticated, (req, res) => {
+    const patientEmailId = req.body.search;
+
+    User.findOne({email: patientEmailId}, function(err, patient) {
+      if (!err) {
+        if (patient) {
+          const patientReports = patient.reports;
+          res.render("searchedReports", {patientReports: patientReports});
+        } else {
+          req.flash("error_msg", "Patient not found");
+          res.redirect("/doctor-dashboard");
+        }
+      } else {
+        req.flash("error_msg", "Something went wrong. Please try again");
+        res.redirect("/doctor-dashboard");
+      }
+    });
   });
 
 module.exports = router;

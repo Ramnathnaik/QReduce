@@ -1,0 +1,45 @@
+<%- include("partials/header") %>
+
+<body>
+  <section id="navigation-bar">
+    <!-- Navbar Section -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="">QReduce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </section>
+  <br>
+  <h1>Search the Patient by Email ID</h1>
+  <br>
+  <div class="container">
+    <form class="search" action="/generate-report" method="post">
+      <input type="text" placeholder="Enter the patient mail id" name="search">
+      <button id="search" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+
+</body>
+
+<%- include("partials/footer") %>
